@@ -19,6 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
     php7.1-curl \
     php7.1-dom \
     php7.1-fpm \
+    php7.1-soap \
     nodejs \
     yarn
 
