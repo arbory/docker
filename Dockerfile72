@@ -12,15 +12,22 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     gnupg \
     ca-certificates \
     php-cli \
-    php-mysql \
-    php-zip \
-    php-mbstring \
-    php-xml \
+    php-ctype \
     php-curl \
     php-dom \
-    php-gd \
     php-fpm \
-    php-soap
+    php-gd \
+    php-iconv \
+    php-libxml \
+    php-mbstring \
+    php-mysql \
+    php-SimpleXML \
+    php-soap \
+    php-xml \
+    php-xmlreader \
+    php-xmlwriter \
+    php-zip \
+    php-zlib
 
 # Add yarn repository
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
