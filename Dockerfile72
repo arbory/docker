@@ -12,13 +12,11 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     gnupg \
     ca-certificates \
     php-cli \
-    php-ctype \
     php-curl \
     php-dom \
     php-fpm \
     php-gd \
     php-iconv \
-    php-libxml \
     php-mbstring \
     php-mysql \
     php-soap \
