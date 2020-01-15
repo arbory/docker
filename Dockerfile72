@@ -20,6 +20,7 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php-mbstring \
     php-mysql \
     php-soap \
+    php-ldap \
     php-xml \
     php-xmlreader \
     php-xmlwriter \
