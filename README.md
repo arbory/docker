@@ -17,7 +17,7 @@ dependencies for Arbory.
 ## Quick reference
 
 - Where to get help: [Stack Overflow][stack_overflow_docker_tag]
-- Where to file issues: [https://github.com/arbory/docker/issues][github_issues]
+- Where to file issues: [GitHub issues][github_issues]
 
 [stack_overflow_docker_tag]: https://stackoverflow.com/questions/tagged/docker
 [github_issues]: https://github.com/arbory/docker/issues
