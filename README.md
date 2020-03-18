@@ -9,7 +9,7 @@ dependencies for Arbory.
 - `7.4-postgres`
 - `7.3`, `7.3-mysql`
 - `7.3-postgres`
-- `7.2`, `7.2-mysql`
+- `7.2`, `7.2-mysql`, `7.2-mysql-dev`
 - `7.2-postgres`
 - `7.1`, `7.1-mysql`
 - `7.1-postgres`
