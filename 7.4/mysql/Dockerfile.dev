@@ -1,0 +1,42 @@
+FROM arbory/arbory:7.4-mysql
+
+RUN apt-get update -y && \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+  libpng-dev \
+  xvfb \
+  gconf2 \
+  fonts-ipafont-gothic \
+  xfonts-cyrillic \
+  xfonts-100dpi \
+  xfonts-75dpi \
+  xfonts-base \
+  xfonts-scalable \
+  xdg-utils \
+  wget \
+  libxcursor1 \
+  libxcomposite1 \
+  libpangocairo-1.0-0 \
+  libpango-1.0-0 \
+  libgtk-3-0 \
+  libgdk-pixbuf2.0-0 \
+  libcups2 \
+  libcairo2 \
+  libatspi2.0-0 \
+  fonts-liberation \
+  libappindicator3-1 \
+  libasound2 \
+  libatk-bridge2.0-0 \
+  libatk1.0-0 \
+  libxi6 \
+  x11vnc \
+  libnss3 \
+  chromium-browser \
+# Get latest chromium version
+  && CHROMEDRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_84` \
+  && mkdir -p /opt/chromedriver-$CHROMEDRIVER_VERSION \
+  && curl -sS -o /tmp/chromedriver_linux64.zip \
+    http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
+  && unzip -qq /tmp/chromedriver_linux64.zip -d /opt/chromedriver-$CHROMEDRIVER_VERSION \
+  && chmod +x /opt/chromedriver-$CHROMEDRIVER_VERSION/chromedriver \
+  && ln -fs /opt/chromedriver-$CHROMEDRIVER_VERSION/chromedriver /usr/local/bin/chromedriver \
+  && rm -Rf /tmp/*
