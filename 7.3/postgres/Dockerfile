@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # php7.3 is available in 19.04 but it is not LTS.
 RUN apt-get update && \
     apt install -y \
-    curl \ 
+    curl \
     wget \
     gnupg2 \
     ca-certificates \
@@ -15,7 +15,7 @@ RUN apt-get update && \
     apt-transport-https \
     software-properties-common
 
-# Add Ondřej Surý repository. 
+# Add Ondřej Surý repository.
 RUN add-apt-repository ppa:ondrej/php && \
     apt-get update
 
@@ -34,6 +34,7 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php7.3-dom \
     php7.3-fpm \
     php7.3-gd \
+    php7.3-intl \
     php7.3-iconv \
     php7.3-mbstring \
     php7.3-pgsql \
