@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Repository is added cause Ubuntu 18.04 don't have php7.4 in its package.
 RUN apt-get update && \
     apt install -y \
-    curl \ 
+    curl \
     wget \
     gnupg2 \
     ca-certificates \
@@ -14,12 +14,14 @@ RUN apt-get update && \
     apt-transport-https \
     software-properties-common
 
-# Add Ondřej Surý repository. 
+# Add Ondřej Surý repository.
 RUN add-apt-repository ppa:ondrej/php && \
     apt-get update
 
 # Install git, php, e.t.c.
 RUN apt-get update -qq && apt-get install --no-install-recommends -y \
+    openssh-client \
+    rsync \
     git \
     unzip \
     bzip2 \

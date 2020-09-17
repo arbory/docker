@@ -21,6 +21,8 @@ RUN add-apt-repository ppa:ondrej/php && \
 
 # Install git, php, e.t.c.
 RUN apt-get update -qq && apt-get install --no-install-recommends -y \
+    openssh-client \
+    rsync \
     git \
     unzip \
     bzip2 \
