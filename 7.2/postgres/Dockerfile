@@ -55,3 +55,6 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Copy composer from already built image
 COPY --from=composer:1.6 /usr/bin/composer /usr/bin/composer
+
+# Install composer parallel install plugin
+RUN composer global require hirak/prestissimo
