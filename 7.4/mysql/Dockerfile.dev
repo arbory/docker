@@ -28,6 +28,7 @@ RUN apt-get update -y && \
   libatk-bridge2.0-0 \
   libatk1.0-0 \
   libxi6 \
+  php7.4-xdebug \
   x11vnc \
   libnss3 \
   chromium-browser \
