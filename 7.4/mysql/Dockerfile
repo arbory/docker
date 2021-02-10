@@ -73,7 +73,4 @@ RUN sed -i "s/;clear_env = no/clear_env = no/" /etc/php/7.4/fpm/pool.d/www.conf
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Copy composer from already built image
-COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
-
-# Install composer parallel install plugin
-RUN composer global require hirak/prestissimo
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
