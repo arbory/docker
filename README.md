@@ -5,6 +5,7 @@ dependencies for Arbory.
 
 ## Supported tags and respective Dockerfile links
 
+- `8.0`, `8.0-mysql`, `latest`
 - `7.4`, `7.4-mysql`, `latest`
 - `7.4-postgres`
 - `7.3`, `7.3-mysql`

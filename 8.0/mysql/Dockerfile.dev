@@ -1,0 +1,35 @@
+FROM arbory/arbory:8.0-mysql
+
+RUN apt-get update -y && \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+  libpng-dev \
+  xvfb \
+  gconf2 \
+  fonts-ipafont-gothic \
+  xfonts-cyrillic \
+  xfonts-100dpi \
+  xfonts-75dpi \
+  xfonts-base \
+  xfonts-scalable \
+  xdg-utils \
+  wget \
+  libxcursor1 \
+  libxcomposite1 \
+  libpangocairo-1.0-0 \
+  libpango-1.0-0 \
+  libgtk-3-0 \
+  libgdk-pixbuf2.0-0 \
+  libcups2 \
+  libcairo2 \
+  libatspi2.0-0 \
+  fonts-liberation \
+  libappindicator3-1 \
+  libasound2 \
+  libatk-bridge2.0-0 \
+  libatk1.0-0 \
+  libxi6 \
+  php8.0-xdebug \
+  x11vnc \
+  libnss3 \
+  chromium-browser \
+  chromium-chromedriver
