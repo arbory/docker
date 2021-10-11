@@ -43,6 +43,7 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php8.0-xmlreader \
     php8.0-xmlwriter \
     php8.0-intl \
+    php8.0-opcache \
     php8.0-zip
 
 # Add yarn repository
