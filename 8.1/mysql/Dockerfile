@@ -45,6 +45,7 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php8.1-intl \
     php8.1-ldap \
     php8.1-opcache \
+    php8.1-bcmath \
     php8.1-zip
 
 # Add yarn repository
