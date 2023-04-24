@@ -1,0 +1,4 @@
+FROM arbory/arbory:8.1-mysql-dev
+
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+  apt install nodejs -y
