@@ -35,3 +35,12 @@ Usefull links:
 [arbory_homepage]: https://www.arborycms.com/
 [github_arbory_repo]: https://github.com/arbory/arbory
 [docker_arbory_repo]: https://hub.docker.com/r/arbory/arbory
+
+
+## Misc
+
+example to build on arm:
+```
+docker buildx build . --platform linux/amd64 --push -f 8.2/mysql/Dockerfile -t arbory/arbory:8.2-mysql
+docker buildx build . --platform linux/amd64 --push -f 8.2/mysql/Dockerfile.dev -t arbory/arbory:8.2-mysql-dev
+```

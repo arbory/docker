@@ -1,0 +1,5 @@
+FROM arbory/arbory:8.2-mysql
+
+RUN apt-get update -y && \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+  php8.1-xdebug
