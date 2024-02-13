@@ -1,0 +1,41 @@
+FROM php:8.3-alpine
+
+RUN apk add --no-cache \
+    automake \
+    autoconf \
+    gcc \
+    g++ \
+    linux-headers \
+    make \
+    nasm \
+    pkgconf \
+    libtool \
+    git \
+    openssh \
+    rsync \
+    zip \
+    nodejs \
+    npm \
+    bash \
+    mariadb-connector-c-dev \
+    mariadb-client \
+    unzip \
+    libzip-dev \
+    icu-dev \
+    jpeg-dev \
+    libpng-dev \
+    libxml2-dev && \
+  docker-php-ext-configure gd --with-jpeg && \
+  docker-php-ext-install \
+    gd \
+    soap \
+    zip \
+    exif \
+    intl \
+    pdo_mysql && \
+  pecl install xdebug && \
+  docker-php-ext-enable xdebug
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+ENV COMPOSER_ALLOW_SUPERUSER=1

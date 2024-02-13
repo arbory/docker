@@ -43,4 +43,6 @@ example to build on arm:
 ```
 docker buildx build . --platform linux/amd64 --push -f 8.2/mysql/Dockerfile -t arbory/arbory:8.2-mysql
 docker buildx build . --platform linux/amd64 --push -f 8.2/mysql/Dockerfile.dev -t arbory/arbory:8.2-mysql-dev
+
+docker buildx build . --platform linux/amd64 --push -f ci/Dockerfile.php8.3-nodejs20 -t arbory/arbory:ci-php8.3-nodejs20
 ```
