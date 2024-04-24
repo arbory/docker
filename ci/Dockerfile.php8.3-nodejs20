@@ -22,10 +22,11 @@ RUN apk add --no-cache \
     unzip \
     libzip-dev \
     icu-dev \
+    freetype-dev \
     jpeg-dev \
     libpng-dev \
     libxml2-dev && \
-  docker-php-ext-configure gd --with-jpeg && \
+  docker-php-ext-configure gd --with-jpeg --with-freetype && \
   docker-php-ext-install \
     gd \
     soap \
