@@ -1,46 +1,36 @@
-FROM php:8.3-alpine
+FROM php:8.3
 
-RUN apk add --no-cache \
-    automake \
-    autoconf \
-    gcc \
-    g++ \
-    linux-headers \
-    make \
-    nasm \
-    pkgconf \
-    libtool \
-    git \
-    openssh \
-    rsync \
-    zip \
+RUN apt update \
+  && apt upgrade -y \
+  && apt install -y \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libfcgi-bin \
+    libzip-dev \
+    default-mysql-client \
     nodejs \
     npm \
-    bash \
-    mariadb-connector-c-dev \
-    mariadb-client \
-    unzip \
-    libzip-dev \
-    icu-dev \
-    freetype-dev \
-    jpeg-dev \
-    libpng-dev \
-    libxml2-dev && \
-  docker-php-ext-configure gd --with-jpeg --with-freetype && \
-  docker-php-ext-install \
-    gd \
-    soap \
     zip \
-    sockets \
-    bcmath \
-    exif \
-    intl \
-    pdo_mysql && \
-  pecl install xdebug && \
-  docker-php-ext-enable xdebug
+    git \
+    rsync \
+    libfreetype-dev \
+    libxml2-dev \
+    libldap-dev \
+  && docker-php-ext-configure gd --with-jpeg --with-freetype  \
+  && docker-php-ext-install -j$(nproc) \
+      gd \
+      soap \
+      zip \
+      sockets \
+      bcmath \
+      exif \
+      intl \
+      opcache \
+      pdo_mysql \
+  && pecl install xdebug \
+  && docker-php-ext-enable xdebug \
+  && apt clean
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/custom.ini
-
-ENV COMPOSER_ALLOW_SUPERUSER=1
