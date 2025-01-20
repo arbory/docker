@@ -2,6 +2,8 @@ FROM php:8.3
 
 RUN apt update \
   && apt upgrade -y \
+  && curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh \
+  && bash nodesource_setup.sh \
   && apt install -y \
     libjpeg62-turbo-dev \
     libpng-dev \
@@ -9,7 +11,6 @@ RUN apt update \
     libzip-dev \
     default-mysql-client \
     nodejs \
-    npm \
     zip \
     git \
     rsync \
