@@ -1,0 +1,37 @@
+FROM php:8.4
+
+RUN apt update \
+  && apt upgrade -y \
+  && curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh \
+  && bash nodesource_setup.sh \
+  && apt install -y \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libfcgi-bin \
+    libzip-dev \
+    default-mysql-client \
+    nodejs \
+    zip \
+    git \
+    rsync \
+    libfreetype-dev \
+    libxml2-dev \
+    libldap-dev \
+  && docker-php-ext-configure gd --with-jpeg --with-freetype  \
+  && docker-php-ext-install -j$(nproc) \
+      gd \
+      soap \
+      zip \
+      sockets \
+      bcmath \
+      exif \
+      intl \
+      opcache \
+      pdo_mysql \
+  && pecl install xdebug \
+  && docker-php-ext-enable xdebug \
+  && apt clean
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/custom.ini
