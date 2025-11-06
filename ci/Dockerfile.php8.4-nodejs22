@@ -28,6 +28,7 @@ RUN apt update \
       intl \
       opcache \
       pdo_mysql \
+      pcntl \
   && pecl install xdebug \
   && docker-php-ext-enable xdebug \
   && apt clean
