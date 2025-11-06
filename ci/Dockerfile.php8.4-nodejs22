@@ -17,6 +17,7 @@ RUN apt update \
     libfreetype-dev \
     libxml2-dev \
     libldap-dev \
+    libicu-dev \
   && docker-php-ext-configure gd --with-jpeg --with-freetype  \
   && docker-php-ext-install -j$(nproc) \
       gd \
