@@ -1,4 +1,4 @@
-FROM php:8.3-alpine
+FROM php:8.3.36-cli-alpine3.24@sha256:9e3f659660bf060ac3baaa56bfdfb07ef92d12cda24e702cc762ef7fb036cfb6
 
 WORKDIR /usr/share/www
 
