@@ -1,4 +1,4 @@
-FROM php:8.4
+FROM php:8.4.27-cli-trixie@sha256:a4ae1f57e22b89a0a69c5e085b3010ee727d094e1542d249e48a01bec3c44810
 
 RUN apt update \
   && apt upgrade -y \

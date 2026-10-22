@@ -2,6 +2,7 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ARG NODE_MAJOR=18
+ARG PHP_VERSION=8.2.35-1+ubuntu22.04.1+deb.sury.org+1
 
 RUN apt-get update \
     && apt-get install -y gnupg gosu curl ca-certificates zip unzip git libcap2-bin software-properties-common libpng-dev \
@@ -15,10 +16,10 @@ RUN apt-get update \
       rsync \
       bzip2 \
       mysql-client \
-      php8.2-cli \
+      php8.2-cli="${PHP_VERSION}" \
       php8.2-curl \
       php8.2-dom \
-      php8.2-fpm \
+      php8.2-fpm="${PHP_VERSION}" \
       php8.2-gd \
       php8.2-iconv \
       php8.2-mbstring \
