@@ -48,4 +48,5 @@ docker buildx build . --platform linux/amd64 --push -f ci/Dockerfile.php8.3-node
 docker buildx build . --platform linux/amd64 --push -f ci/Dockerfile.php8.4-nodejs22 -t arbory/arbory:ci-php8.4-nodejs22
 docker buildx build . --platform linux/amd64 --push -f ci/Dockerfile.php8.4-nodejs24 -t arbory/arbory:ci-php8.4-nodejs24
 docker buildx build . --platform linux/amd64 --push -f ci/Dockerfile.php8.5-nodejs24 -t arbory/arbory:ci-php8.5-nodejs24
+docker buildx build . --platform linux/amd64,linux/arm64 --push -f ci/Dockerfile.php8.6-nodejs26 -t arbory/arbory:ci-php8.6-nodejs26
 ```

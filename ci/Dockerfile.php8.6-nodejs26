@@ -1,0 +1,41 @@
+FROM php:8.6.0-cli-trixie@sha256:d84acf3155d907afaa5afa9b9457c5f12016b6dc7ade84659f40cdc505cc087d
+
+COPY --from=ghcr.io/php/pie:bin /pie /usr/bin/pie
+
+RUN apt update \
+  && apt upgrade -y \
+  && curl -fsSL https://deb.nodesource.com/setup_26.x -o nodesource_setup.sh \
+  && bash nodesource_setup.sh \
+  && apt install -y \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libfcgi-bin \
+    libzip-dev \
+    default-mysql-client \
+    nodejs \
+    zip \
+    git \
+    rsync \
+    libfreetype-dev \
+    libxml2-dev \
+    libldap-dev \
+    libicu-dev \
+    libxslt-dev \
+  && docker-php-ext-configure gd --with-jpeg --with-freetype  \
+  && docker-php-ext-install -j$(nproc) \
+      gd \
+      soap \
+      zip \
+      sockets \
+      bcmath \
+      exif \
+      intl \
+      pdo_mysql \
+      pcntl \
+      xsl \
+  && pie install xdebug/xdebug:3.6.0alpha1 \
+  && apt clean
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/custom.ini
